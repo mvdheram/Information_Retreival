@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="expressions">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene-7.4.0/expressions/lucene-expressions-7.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lucene-7.4.0/queries/lucene-queries-7.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lucene-7.4.0/queryparser/lucene-queryparser-7.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lucene-7.4.0/core/lucene-core-7.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lucene-7.4.0/benchmark/lucene-benchmark-7.4.0.jar!/" />
+      <root url="file://$PROJECT_DIR$/lucene-7.4.0/expressions" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lucene-7.4.0/expressions" recursive="false" />
+  </library>
+</component>
