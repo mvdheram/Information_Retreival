@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene-7.4.0/test-framework/lib/randomizedtesting-runner-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lucene-7.4.0/test-framework/lib/junit-4.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

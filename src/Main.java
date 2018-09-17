@@ -1,40 +1,50 @@
-import java.io.File;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.core.SimpleAnalyzer;
-
 import org.apache.lucene.index.IndexWriter;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
+import java.io.File;
 
 
 public class Main {
 
     public static void main(String[] args) {
-        String file = "C:\\IRCrawler'\\filestoIndex\\will_play_text.xml";
+        String file = "/Users/anandmeherkotra/IdeaProjects/Information_Retreival/filestoIndex/will_play_text.xml";
         File f = new File(file);
+        System.out.println(f.canRead());
         try {
             Directory directory = new RAMDirectory();
             Analyzer analyzer = new SimpleAnalyzer();
             IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
             iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
+            IndexWriter writer = new IndexWriter(directory,iwc);
+            // create DOM parser
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
             Document doc = dBuilder.parse(file);
-            NodeList nList = doc.getElementsByTagName("table");
-            for (int temp = 0; temp<nList.getLength();temp++) {
-                Element element = (Element) nList;
-                Node nodeList = nList.item(temp).getAttributes("bill");
-                System.out.println(nodeList);
+
+            doc.getDocumentElement().normalize();
+
+            XPath xPath = XPathFactory.newInstance().newXPath();
+            String expression = "//database/table"; // Enter the base tag and the child which you would like to parse
+
+            NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(doc, XPathConstants.NODESET);
+            System.out.println(nodeList.item(45));
+            System.out.println("--------------------------------------");
+
+            for (int temp = 0; temp<nodeList.getLength();temp++) {
+                Node node = nodeList.item(temp);
+
+
                 
             }
 
